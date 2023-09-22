@@ -1,5 +1,12 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+    "version": 2,
+    "builds": [
+      { "src": "raman-portfolio", "use": "@vercel/node" },
+      { "src": "server", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/server/$1" },
+      { "src": "/(.*)", "dest": "/raman-portfolio/pages/$1" }
     ]
   }
+  
